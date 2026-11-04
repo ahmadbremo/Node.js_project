@@ -1,8 +1,6 @@
 const express = require('express');
 const app = express();
 const port = process.env.PORT || 3000;
-require('dotenv').config();
-const mongoURI = process.env.MONGO_URI;
 var methodOverride = require('method-override'); //import the method-override library to use the put and delete methods in the form
 const mongoose = require('mongoose');//create an instance of mongoose(connect to the mongodb)
 
@@ -27,7 +25,7 @@ liveReloadServer.server.once("connection", () => {
 //connect to the database(connect to the mongodb)
 mongoose
 //to use local database just replace the link below with ('mongodb://localhost:27017/all-data')
-.connect(mongoURI)
+.connect("mongodb+srv://ahmadbrymww008_db_user:d4cfbXu2CGZGQh4g@cluster0.cynzp1u.mongodb.net/all-data?appName=Cluster0")
 .then(() => {
     app.listen(port, () => {
     console.log(`http://localhost:${port}/`)});
